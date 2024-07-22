@@ -1,0 +1,1634 @@
+{
+    "name":"APRA - Outsourcing involving cloud computing services",
+    "schemaVersion":"2021-11-01",
+    "description":"The following custom lens will guide you through a set of questions to help prepare a workload for an APRA evaluate. This lens provides general guidance and is not a replacement or commitment that all the required steps have been completed.",
+    "pillars":[
+       {
+          "id":"foundation",
+          "name":"Foundational",
+          "questions":[
+             {
+                "id":"foundation01",
+                "title":"Does the workload have an approved architecture design?",
+                "description":"The workload design has gone through one or more reviews by the stakeholders and they have accepted the design.",
+                "choices":[
+                   {
+                      "id":"choice1",
+                      "title":"No.",
+                      "helpfulResource":{
+                         "displayText":"The workload has no approved design document or the design is still in progress."
+                      },
+                      "improvementPlan":{
+                         "displayText":"If there is no approved design document or it is still in progress then it important to get this completed, an approved design as this is the plan that this workload will be built from."
+                      }
+                   },
+                   {
+                      "id":"choice2",
+                      "title":"Not sure.",
+                      "helpfulResource":{
+                         "displayText":"It is unknown if there is an approved design, who to ask for it or where to find the approved design."
+                      },
+                      "improvementPlan":{
+                         "displayText":"This is a concern as without a approved design the team will not know what needs to be built and if it is correct.  Work should stop and the design for the solution should be sought."
+                      }
+                   },
+                   {
+                      "id":"choice3",
+                      "title":"Yes for current deployment not for cloud.",
+                      "helpfulResource":{
+                         "displayText":"An existing design exists for the current deployment but there is no new design or an updated design for the cloud deployment."
+                      },
+                      "improvementPlan":{
+                         "displayText":"Work should stop on the build and a design should be completed to ensure that the correct configuration is deployed into the Cloud."
+                      }
+                   },
+                   {
+                      "id":"choice4",
+                      "title":"Yes for the cloud.",
+                      "helpfulResource":{
+                         "displayText":"An updated design exists, it is approved and is what has been used to build the cloud deployment of the workload."
+                      },
+                      "improvementPlan":{
+                         "displayText":"No improvement guidance is noted for this selection."
+                      }
+                   }
+                ],
+                "riskRules":[
+                   {
+                      "condition":"choice4 && !choice1 && !choice2 && !choice3",
+                      "risk":"NO_RISK"
+                   },
+                   {
+                      "condition":"choice3 && !choice1 && !choice2 && !choice4",
+                      "risk":"MEDIUM_RISK"
+                   },
+                   {
+                      "condition":"default",
+                      "risk":"HIGH_RISK"
+                   }
+                ]
+             },
+             {
+                "id":"foundation02",
+                "title":"Is this workload included in the cloud strategy and architectural roadmap?",
+                "description":"The workload has been included in the organisation's cloud strategy and is included on an architectural roadmap.",
+                "choices":[
+                   {
+                      "id":"choice1",
+                      "title":"No.",
+                      "helpfulResource":{
+                         "displayText":"The workload is not included in the cloud strategy and or architectural roadmap."
+                      },
+                      "improvementPlan":{
+                         "displayText":"The APRA requirement requires an organisation formulate a cloud strategy and architecture roadmaps for workloads that will be operated in the cloud. As the workload is not included in the strategy it should as a matter of urgency be reviewed as soon as possible as there may be specific guidance that needs to be considered."
+                      }
+                   },
+                   {
+                      "id":"choice2",
+                      "title":"Not sure.",
+                      "helpfulResource":{
+                         "displayText":"It is unknown if this workload is included in the cloud strategy and or architectural roadmap."
+                      },
+                      "improvementPlan":{
+                         "displayText":"This is a concern as the workload may not be compliant against any of governance standards the organisation has adopted as part of cloud adoption."
+                      }
+                   },
+                   {
+                      "id":"choice3",
+                      "title":"Yes.",
+                      "helpfulResource":{
+                         "displayText":"Yes, the workload is included in the cloud strategy and architectural roadmap."
+                      },
+                      "improvementPlan":{
+                         "displayText":"No improvement guidance is noted for this selection."
+                      }
+                   }
+                ],
+                "riskRules":[
+                   {
+                      "condition":"choice3 && !choice1 && !choice2",
+                      "risk":"NO_RISK"
+                   },
+                   {
+                      "condition":"choice2 && !choice1 && !choice3",
+                      "risk":"MEDIUM_RISK"
+                   },
+                   {
+                      "condition":"default",
+                      "risk":"HIGH_RISK"
+                   }
+                ]
+             },
+             {
+                "id":"foundation03",
+                "title":"Does this workload have an approved business case?",
+                "description":"Does this workload have an approved business case that provides adequate visibility of the associated risks of the workload being run in the cloud.",
+                "choices":[
+                   {
+                      "id":"choice1",
+                      "title":"No.",
+                      "helpfulResource":{
+                         "displayText":"The workload is not included in the cloud strategy and or architectural roadmap."
+                      },
+                      "improvementPlan":{
+                         "displayText":"APRA requirement is to be clear what the outcome of hosting this workload in the cloud is in terms of the business outcome, as this workload is not included in the business case it is not clear then why or what the outcome will be of hosting this workload in the cloud and it may not be known to the stakeholder that this workload will be hosted in the cloud."
+                      }
+                   },
+                   {
+                      "id":"choice2",
+                      "title":"No, our business case template does not include coverage of risks.",
+                      "helpfulResource":{
+                         "displayText":"Risk have not been documented, we are not aware that this needs to be done."
+                      },
+                      "improvementPlan":{
+                         "displayText":"If risks are not documented or understood then it is not possible to identify and plan mitigations of them."
+                      }
+                   },
+                   {
+                      "id":"choice3",
+                      "title":"No, it is being developed/ not yet approved but we plan to include risks.",
+                      "helpfulResource":{
+                         "displayText":"We are aware this needs to be done as part of the APRA requirements, we are still working out when or how to do this."
+                      },
+                      "improvementPlan":{
+                         "displayText":"APRA requirement is to be clear both for the business outcome and risk identification this should be addressed urgently."
+                      }
+                   },
+                   {
+                      "id":"choice4",
+                      "title":"Yes, business case covers security and resilience.",
+                      "helpfulResource":{
+                         "displayText":"The business case provides details of the associated risks of our cloud initiative, focusing on security and resilience."
+                      },
+                      "improvementPlan":{
+                         "displayText":"This is a good step but the focus should be broader to include governance, technology, operating model, service provider and legal risks."
+                      }
+                   },
+                   {
+                      "id":"choice5",
+                      "title":"Yes, business case covers governance, technology, operating model, service provider and legal risks.",
+                      "helpfulResource":{
+                         "displayText":"The business case provides details of the associated risks of our cloud initiative covering governance, technology, operating model, service provider and legal risks."
+                      },
+                      "improvementPlan":{
+                         "displayText":"This is a good step but the focus should be broader to also include security and resilience."
+                      }
+                   }
+                ],
+                "riskRules":[
+                   {
+                      "condition":"choice5 && choice4 && !choice1 && !choice2 && !choice3",
+                      "risk":"NO_RISK"
+                   },
+                   {
+                      "condition":"((choice5 || choice4 || choice3) && !choice1 && !choice2)",
+                      "risk":"MEDIUM_RISK"
+                   },
+                   {
+                      "condition":"default",
+                      "risk":"HIGH_RISK"
+                   }
+                ]
+             },
+             {
+                "id":"foundation04",
+                "title":"What governance framework is used for the workload?",
+                "description":"Does the workload have a clearly defined governance framework that oversee the execution on the cloud.",
+                "choices":[
+                   {
+                      "id":"choice1",
+                      "title":"No.",
+                      "helpfulResource":{
+                         "displayText":"This workload is not included in any governance framework."
+                      },
+                      "improvementPlan":{
+                         "displayText":"The workload should not be moved to the cloud without an approved and documented governance framework."
+                      }
+                   },
+                   {
+                      "id":"choice2",
+                      "title":"Not sure.",
+                      "helpfulResource":{
+                         "displayText":"It is not clear if there is a governance framework, uncertain what is required, never seen or had a discussion on this before for this workload."
+                      },
+                      "improvementPlan":{
+                         "displayText":"The workload should not be moved to the cloud without an approved and documented governance framework."
+                      }
+                   },
+                   {
+                      "id":"choice3",
+                      "title":"Yes, but there are gaps.",
+                      "helpfulResource":{
+                         "displayText":"Aware of the framework but gaps have been identified and there are items that are not clear how to address them."
+                      },
+                      "improvementPlan":{
+                         "displayText":"The gaps should be addressed as a matter of urgency before the workload is moved to the cloud."
+                      }
+                   },
+                   {
+                      "id":"choice4",
+                      "title":"Yes, using the existing non cloud framework.",
+                      "helpfulResource":{
+                         "displayText":"The non cloud framework has been used to evaluate the governance requirements."
+                      },
+                      "improvementPlan":{
+                         "displayText":"The existing framework may not cover specific related to the cloud provider services and associated guidances, best practices."
+                      }
+                   },
+                   {
+                      "id":"choice5",
+                      "title":"Yes, a cloud specific governance framework has been used.",
+                      "helpfulResource":{
+                         "displayText":"we have at clearly defined governance framework that defines roles, responsibilities and delegations for oversight and decision making for cloud workloads and this workload meets the framework fully."
+                      },
+                      "improvementPlan":{
+                         "displayText":"No further improvement guidance is noted for this selection."
+                      }
+                   }
+                ],
+                "riskRules":[
+                   {
+                      "condition":"choice5 && !choice1 && !choice2 && !choice3 && !choice4",
+                      "risk":"NO_RISK"
+                   },
+                   {
+                      "condition":"choice4 && !choice1 && !choice2 && !choice3 && !choice5",
+                      "risk":"MEDIUM_RISK"
+                   },
+                   {
+                      "condition":"default",
+                      "risk":"HIGH_RISK"
+                   }
+                ]
+             },
+             {
+               "id":"foundation05",
+               "title":"Has this workload being evaluated by the the organisation approved cloud risk framework?",
+               "description":"Workload should be evaluated against a risk framework applicable to the cloud adoption.",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"No.",
+                     "helpfulResource":{
+                        "displayText":"This workload has not been evaluated against the cloud risk framework."
+                     },
+                     "improvementPlan":{
+                        "displayText":"The workload should not be moved to the cloud without being evaluated against the cloud risk framework."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"Not sure.",
+                     "helpfulResource":{
+                        "displayText":"It is not clear if there is a cloud risk framework, uncertain what is required, never seen or had a discussion on this before for this workload."
+                     },
+                     "improvementPlan":{
+                        "displayText":"The workload should not be moved to the cloud without being evaluated against the cloud risk framework."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"No, we are applying our existing operational / IT risks framework.",
+                     "helpfulResource":{
+                        "displayText":"Our current framework which are based on widely adopted standards (e.g. ISO31000, COBIT, NIST) have been used."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Although existing framework provide guidance, they can be disjoined and risk may be present due to this, a cloud risk frame should be defined, the workload should be measured against that before being moved to cloud."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes, we have used an approved operational / IT risks framework of the organisation that specifically covers cloud.",
+                     "helpfulResource":{
+                        "displayText":"we have at clearly defined cloud risk framework."
+                     },
+                     "improvementPlan":{
+                        "displayText":"No further improvement guidance is noted for this selection."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice4 && !choice1 && !choice2 && !choice3",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"foundation06",
+               "title":"Does the workload have operating model when run in the cloud?",
+               "description":"Does the workload have a clearly defined operating model that supports the workload when run in the cloud.",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"No.",
+                     "helpfulResource":{
+                        "displayText":"There is no operating model for the cloud or unsure if there is an operating model when run in the cloud."
+                     },
+                     "improvementPlan":{
+                        "displayText":"The workload should not be moved to the cloud without understanding who is responsible for what."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"No, but we are in the process of developing one.",
+                     "helpfulResource":{
+                        "displayText":"It is important to be clear where who is responsible for what when operating in the cloud as there are shared responsibilities, this can be more complex if there are multiple parties involved for the workload."
+                     },
+                     "improvementPlan":{
+                        "displayText":"The workload should not be moved into the cloud until it is clear who is responsible for what."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Yes, we have defined an operating model that describes what we will do and what the vendor will do.",
+                     "helpfulResource":{
+                        "displayText":"Gaps may existing in this model, it should be more broad to include people, process and technology."
+                     },
+                     "improvementPlan":{
+                        "displayText":"The operating model should be reviewed to ensure that it includes people, processes and technology and who is responsible for each aspect of these items."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes, we have defined an operating model that addresses how people, process and technology will be organised and operate.",
+                     "helpfulResource":{
+                        "displayText":"The operating model that has been defined addresses how people, process and technology will be organised and operate that takes into account the shared responsibilities between us and our vendor(s)."
+                     },
+                     "improvementPlan":{
+                        "displayText":"There are no suggested improvement plans for this selection."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice4 && !choice1 && !choice2 && !choice3",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"choice3 && !choice1 && !choice2 && !choice4",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"foundation07",
+               "title":"How was the cloud chosen for this workload?",
+               "description":"Deciding where to host a workload involves evaluating numerous items, this question looks to understand how that decision was made.",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Not sure.",
+                     "helpfulResource":{
+                        "displayText":"We are uncertain or do not know how it was decided, we have just been told to build this workload on the cloud."
+                     },
+                     "improvementPlan":{
+                        "displayText":"The workload should not be moved to the cloud without understanding what are the desired outcomes will be."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"We are still deciding if the workload will be hosted in the cloud.",
+                     "helpfulResource":{
+                        "displayText":"Cloud offers numerous benefits, it may also introduce new risk, by understanding what the desired outcome are, it allow the benefits to be correctly understood to the risk and how to manage those risk at a level that is satisfactory for the benefits that will be realised by running the workload on the cloud."
+                     },
+                     "improvementPlan":{
+                        "displayText":"The workload should not be moved to the cloud without understanding what are the desired outcomes will be."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Yes, we followed our existing procurement/vendor management process.",
+                     "helpfulResource":{
+                        "displayText":"Gaps may existing in this process, consumption of cloud computing model are different from fixed price agreements as an example."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Proceed with caution, cloud vendors have a broad eco system of partners, there are different consumption methods, example software as a service, pay as you go which may not be something currently factored into existing process."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes, we followed our procurement/vendor management process and engaged with legal, risk, security and assurance functions.",
+                     "helpfulResource":{
+                        "displayText":"Gaps may existing in this process, consumption of cloud computing model are different from fixed price agreements as an example."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Although you will most probably cover off most of the items with this approach, scaling this process will be difficult and cumbersome for multiple workloads."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"Yes, as above which is within a specific cloud provider procurement process.",
+                     "helpfulResource":{
+                        "displayText":"A specific procurement process that deals with cloud will help to ensure consistency this is especially important where multiple workloads are run."
+                     },
+                     "improvementPlan":{
+                        "displayText":"There are no noted improvement plan for this option."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice5 && !choice1 && !choice2 && !choice3 && !choice4",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice4 || choice3) && !choice1 && !choice2 && !choice5",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"foundation08",
+               "title":"Is this workload included in a contractual agreement with your cloud provider that meets your regulatory and legal requirements?",
+               "description":"Regulated workload generally have more stringent oversight, having contractual agreement/s that cover the different requirements is important to avoid ambiguity between parties.",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"No or we do not know.",
+                     "helpfulResource":{
+                        "displayText":"Not understanding what contractual terms exists is risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"The workload should not be moved to the cloud until the contractual terms are clearly understood."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"Yes, the standard terms and conditions provided when signing up with a cloud provider.",
+                     "helpfulResource":{
+                        "displayText":"The standard terms and conditions are not always suitable for all workload, especially regulated workloads and may require other terms and conditions or additional terms and conditions."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Review the standard terms and conditions to understand if they are satisfactory for the workload."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Not yet, but an agreement is under review by our legal team.",
+                     "helpfulResource":{
+                        "displayText":"Your legal team is best place to advise further what should happen."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Consult with your legal team for further advise regarding moving this workload to the cloud and if you should continue or wait."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes, as above, the agreement was reviewed by legal, risk & security teams to ensure compliance with our regulatory requirement.",
+                     "helpfulResource":{
+                        "displayText":"Although there should be no concern with moving the workload, you should engage to ensure that the current agreement covers this new workload."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Cloud services are always evolving and it is important to ensure that the agreement remain current and the service/features that you want to use are covered in those terms." 
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"Yes, as above and these are periodically reviewed.",
+                     "helpfulResource":{
+                        "displayText":"This is a good position to be in as it most likely that the agreement meets the requirements as it is reviewed regularly."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Consult with relevant team to ensure there are no concerns."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice5 && !choice1 && !choice2 && !choice3 && !choice4",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice4 || choice3) && !choice1 && !choice2 && !choice5",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            }
+          ]
+       },
+       {
+         "id":"capability",
+         "name":"Capability",
+         "questions":[
+            {
+               "id":"capability01",
+               "title":"Have the roles and responsibilities for operating this workload in the cloud been clearly defined?",
+               "description":"Roles and responsibilities",
+               "helpfulResource":{
+                  "displayText":"Ensure that roles and responsibilities that are desired for the workload operation in the cloud have been defined clearly, and captured through the documentation properly within the organization."
+               },
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"No.",
+                     "helpfulResource":{
+                        "displayText":"Choose this if the roles and responsibility of your workload operation in the cloud haven’t been defined yet."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"No, roles and responsibilities are loosely defined.",
+                     "helpfulResource":{
+                        "displayText":"Choose this if the roles and responsibility of your workload operation in the cloud have been initially defined, but don’t have clear definition, such as fine-grained of role and segregation of duties definition."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Yes, roles and responsibilities are clearly defined.",
+                     "helpfulResource":{
+                        "displayText":"Choose this if the roles and responsibility of your workload operation in the cloud have been clearly defined and accepted by relevant stakeholders, but haven’t been updated regularly(e.g. quarterly/annually)."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes, roles and responsibilities are clearly defined and regularly updated.",
+                     "helpfulResource":{
+                        "displayText":"Choose this if the roles and responsibility of your workload operation in the cloud have been clearly defined and accepted by relevant stakeholders, while also be updated regularly(e.g. quarterly/annually)."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice4 && !choice1 && !choice2 && !choice3",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"choice3 && !choice1 && !choice2 && !choice4",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"capabilities02",
+               "title":"Have you identified accountable stakeholders that will provide oversight / support of the workload??",
+               "description":"Stakeholders.",
+               "helpfulResource":{
+                  "displayText":"Involve key accountable stakeholders, including business, development, and operations teams in regards to supporting/oversight of the workload. This will ensure that you have a thorough understanding of the workload that is required to achieve your desired business outcomes."
+               },
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"No, no clear stakeholder identified.",
+                     "helpfulResource":{
+                        "displayText":"Stakeholders."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"Yes, key stakeholders have been identified.",
+                     "helpfulResource":{
+                        "displayText":"Stakeholders."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Yes, key stakeholders have been identified and meet regularly.",
+                     "helpfulResource":{
+                        "displayText":"Stakeholders."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes, key stakeholders have been identified, meet regularly and provide progress updates.",
+                     "helpfulResource":{
+                        "displayText":"Provide updates on strategy execution and governance to our Board, management and staff."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice4 && !choice1 && !choice2 && !choice3",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"choice3 && !choice1 && !choice2 && !choice4",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"capability03",
+               "title":"Does the workload have an operating model?",
+               "description":"Operating model.",
+               "helpfulResource":{
+                  "displayText":"Teams need to understand their roles in the success of other teams, the role of other teams in their success, and have shared goals. Understanding responsibility, ownership, how decisions are made, and who has authority to make decisions will help focus efforts and maximize the benefits from your teams. https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/operating-model.html"
+               },
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"No. We do not currently have an operating model that supports cloud workloads.",
+                     "helpfulResource":{
+                        "displayText":"Operating model."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"No. We have a loosely defined cloud operating model .",
+                     "helpfulResource":{
+                        "displayText":"Operating Model."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Yes. We have a well defined cloud operating model.",
+                     "helpfulResource":{
+                        "displayText":"Operating Model."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes. We have a well defined cloud operating model and a mechanism for continual improvement.",
+                     "helpfulResource":{
+                        "displayText":"Operating Model."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice4 && !choice1 && !choice2 && !choice3",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"((choice3) && !choice1 && !choice2 && !choice4)",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"capability04",
+               "title":"How do you integrate the cloud providers support offerings into this workloads operating model?",
+               "description":"Does the workload have a clearly defined governance framework that oversee the execution on the cloud.",
+               "helpfulResource":{
+                  "displayText":"Integrating the support offerings from cloud providers to your operating model can save you time and resources, and lets you keep your internal teams lean and focused on strategic outcomes that will differentiate your business, rather than developing new skills and capabilities."
+               },
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Not sure.",
+                     "helpfulResource":{
+                        "displayText":"Support offering."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"We have a documented and tested escalation path.",
+                     "helpfulResource":{
+                        "displayText":"Support offering."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Our cloud provider is integrated into our ITSM process.",
+                     "helpfulResource":{
+                        "displayText":"Support offerings."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"We have premium support from our cloud provider (e.g. AWS Enterprise support).",
+                     "helpfulResource":{
+                        "displayText":"Support offerings."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"As above, and we leverage our cloud provider's event management capability.",
+                     "helpfulResource":{
+                        "displayText":"Support offering."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"(choice5 && choice4) && !choice1 && !choice2 && !choice3",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice5 || choice4 || choice3) && !choice1 && !choice2",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+              "id":"capability05",
+              "title":"Do you have a resourcing/training plan in place to up-skill staff for required cloud skills?",
+              "description":"Training.",
+              "helpfulResource":{
+               "displayText":"IT professionals with the right cloud skills are critical to the execution of the organizational cloud strategy, hence helping your staff to acquire in-demand cloud expertise is critical to the overall cloud strategies."
+            },
+              "choices":[
+                 {
+                    "id":"choice1",
+                    "title":"No.",
+                    "helpfulResource":{
+                       "displayText":"Training."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 },
+                 {
+                    "id":"choice2",
+                    "title":"No. We have a community of practice to share knowledge.",
+                    "helpfulResource":{
+                       "displayText":"Training."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 },
+                 {
+                    "id":"choice3",
+                    "title":"Yes. Our training plans aligns with roles and responsibility definitions.",
+                    "helpfulResource":{
+                       "displayText":"Training."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 },
+                 {
+                    "id":"choice4",
+                    "title":"Yes. We have performed a skills gap analysis of our organisation against required needs based on our operating model.",
+                    "helpfulResource":{
+                       "displayText":"Training."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 },
+                 {
+                    "id":"choice5",
+                    "title":"Yes. As above and we have addressed our gaps with service provider or third party led training.",
+                    "helpfulResource":{
+                       "displayText":"Training."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 },
+                 {
+                    "id":"choice6",
+                    "title":"Yes. We have an appropriate number of cloud certified team members",
+                    "helpfulResource":{
+                       "displayText":"that is commensurate with our strategy and desired operating model."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 }
+              ],
+              "riskRules":[
+                 {
+                    "condition":"(choice6 && choice5 && choice4) && !choice1 && !choice2 && !choice3",
+                    "risk":"NO_RISK"
+                 },
+                 {
+                    "condition":"(choice6 || choice5 || choice4 || choice3) && !choice1 && !choice2",
+                    "risk":"MEDIUM_RISK"
+                 },
+                 {
+                    "condition":"default",
+                    "risk":"HIGH_RISK"
+                 }
+              ]
+           },
+           {
+              "id":"capability06",
+              "title":"How do you augment your internal cloud capability?",
+              "description":"Cloud capability.",
+              "helpfulResource":{
+               "displayText":"It’s important to use a balanced approach over the long term to ensure the development of needed capabilities and management of risk."
+            },
+              "choices":[
+                 {
+                    "id":"choice1",
+                    "title":"Not sure.",
+                    "helpfulResource":{
+                       "displayText":"Cloud capability."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 },
+                 {
+                    "id":"choice2",
+                    "title":"We have regular cadence with specialists from our cloud provider.",
+                    "helpfulResource":{
+                       "displayText":"Cloud capability."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 },
+                 {
+                    "id":"choice3",
+                    "title":"Yes, we have defined an operating model that describes what we will do and what the vendor will do.",
+                    "helpfulResource":{
+                       "displayText":"Gaps may existing in this model, it should be more broad to include people, process and technology."
+                    },
+                    "improvementPlan":{
+                       "displayText":"The operating model should be reviewed to ensure that it includes people, processes and technology and who is responsible for each aspect of these items."
+                    }
+                 },
+                 {
+                    "id":"choice4",
+                    "title":"We have enterprise support with a dedicated technical account manager.",
+                    "helpfulResource":{
+                       "displayText":"Cloud capability."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 },
+                 {
+                    "id":"choice5",
+                    "title":"We utilise the professional services / partners of the cloud provider.",
+                    "helpfulResource":{
+                       "displayText":"Cloud capability."
+                    },
+                    "improvementPlan":{
+                       "displayText":"TBA."
+                    }
+                 }
+              ],
+              "riskRules":[
+                 {
+                    "condition":"((choice2 && choice3) || (choice2 && choice3 && choice4) || (choice2 && choice3 && choice4 && choice5)) && !choice1",
+                    "risk":"NO_RISK"
+                 },
+                 {
+                    "condition":"(choice2 || choice3 || choice4 || choice5) && !choice1",
+                    "risk":"MEDIUM_RISK"
+                 },
+                 {
+                    "condition":"default",
+                    "risk":"HIGH_RISK"
+                 }
+              ]
+           }
+         ]
+      },
+      {
+         "id":"risk",
+         "name":"Risk",
+         "questions":[
+            {
+               "id":"risk01",
+               "title":"Do you have a risk framework applicable to your cloud adoption that this workload has been subjected to?",
+               "description":"Risk",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"No.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"Not sure.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Yes, we are applying our existing Operational / IT risk frameworks.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes, we have created and will apply a cloud-specific risk framework.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"Yes, we are applying our existing operational / IT risks framework based on widely adopted standards.",
+                     "helpfulResource":{
+                        "displayText":"Example of standard  (e.g. ISO31000, COBIT, BASEL, NIST)."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice4 && !choice1 && !choice2 && !choice3 && !choice5",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice3 || choice5) && !choice1 && !choice2 && !choice4",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"risk02",
+               "title":"Have you utilised a control framework to address and evaluate identified risks applicable to this workload?",
+               "description":"Risk.",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"No.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"Not sure.",
+                     "helpfulResource":{
+                        "displayText":"Stakeholders."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Yes, aligns to an internal standard specific to our organisation.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Yes, aligns to an industry standard (COBIT, NIST, PCI, ISOXXX, etc.).",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"Yes, aligns to the cloud provider’s shared responsibility model.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"(choice3 && choice4 && choice5) && !choice1 && !choice2",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice3 || choice4 || choice5) && !choice1 && !choice2",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"risk03",
+               "title":"How do you plan to ensure that this workload is delivered and operated in alignment with your risk appetite?",
+               "description":"Risk.",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Not sure.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"Rely on Cloud Program governance (steering committee, project team).",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Pre-migration risk assessment by security/risk team.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Pre-migration risk assessment by security/risk team and then periodic risk assessment updates once workload in production.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"As above, and periodic internal audit / external assurance.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice6",
+                     "title":"Automated controls assurance + periodic internal audit / external assurance.",
+                     "helpfulResource":{
+                        "displayText":"Risk."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice6 && !choice1 && !choice2 && !choice3 && !choice4 && !choice5",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"((choice4 || choice5) && !choice1 && !choice2 && !choice3 && !choice6)",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"assurance01",
+               "title":"How do you plan to gain assurance that this workloads cloud usage will be in compliance with your organisation's policies?",
+               "description":"Assurance",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Unsure or to be defined.",
+                     "helpfulResource":{
+                        "displayText":"Assurance."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"Reliance on external assurance reports (SOC2/ISO270XX) from vendor.",
+                     "helpfulResource":{
+                        "displayText":"Assurance."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"Regular risk and controls testing.",
+                     "helpfulResource":{
+                        "displayText":"Assurance."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"Regular risk and controls testing + regular internal audits.",
+                     "helpfulResource":{
+                        "displayText":"Assurance."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"Regular risk and controls testing + regular independent attestation.",
+                     "helpfulResource":{
+                        "displayText":"Assurance."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice6",
+                     "title":"Automated continuous controls assurance + internal audits + regular independent attestation.",
+                     "helpfulResource":{
+                        "displayText":"Assurance."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice6 && !choice1 && !choice2 && !choice3 && !choice4 && !choice5",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice5 || choice4 || choice3) && !choice1 && !choice2 && !choice6",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id":"businesscontinuity",
+         "name":"Business Continuity",
+         "questions":[
+            {
+               "id":"bc01",
+               "title":"How is this workload's resiliency governed in the cloud?",
+               "description":"The AWS Well-Architected Framework defines resilience as “the capability to recover when stressed by load (more requests for service), attacks (either accidental through a bug, or deliberate through intention), and failure of any component in the workload's components.",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Not sure / to be defined.",
+                     "helpfulResource":{
+                        "displayText":"An adhoc approach is unlikely to lead to operational excellence."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Defining patterns for timeouts, graceful degredation, retries, exponential backoff and circuit breakers will help improve resilience. Then test them with Chaos Engineering practices.",
+				            "url": "https://aws.amazon.com/resilience-hub/"
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"Cloud resiliency principles are documented in a policy/standard.",
+                     "helpfulResource":{
+                        "displayText":"Clearly defined standards and goals raise the bar on resiliance. Standards need to be published and centrally controlled, and referenced in solution architecture documents."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"We have a set of architecture standards and patterns that align to resiliency principles.",
+                     "helpfulResource":{
+                        "displayText":"How do you ensure that standards, patterns and practices are known, reviewed and followed for each workload, in accordance with the criticality of the workload?"
+                     },
+                     "improvementPlan":{
+                        "displayText":"Define application criticality, with expected RPO/RTO/availability SLA for each level."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"We do architectural reviews of each workload.",
+                     "helpfulResource":{
+                        "displayText":"What is the process of review, improvement/rejection and approval for architectural review? Who are the stakeholders?"
+                     },
+                     "improvementPlan":{
+                        "displayText":"Define an architecture review board with associated stakeholders, convene it regularly with appropriate stakeholders and set patterns and standards which need to be followed. Define workload criticality."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"We test our plan (aka with game days against our defined RPO / RTO).",
+                     "helpfulResource":{
+                        "displayText":"You run game days in non-prod with production-like load to determine your ability to meet RPO and RTO goals."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice6",
+                     "title":"We review and revise our approach and performance regularly ",
+                     "helpfulResource":{
+                        "displayText":"Standards and patterns are reviewed at least annually for improvement."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"(choice6 && choice5 && choice4 && choice3 && choice2) && !choice1 ",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice6 || choice5 || choice4 || choice3 || choice2) && !choice1",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"bc02",
+               "title":"How will you design for availability of this workload in the cloud?",
+               "description":"Business continuity",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Not sure / to be defined.",
+                     "helpfulResource":{
+                        "displayText":"Availability needs to be designed, built and tested."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"We set a designated availability (99.99x etc.) to meet business requirements (RTO/RPO).",
+                     "helpfulResource":{
+                        "displayText":"Designed availability provides SMART goals that can be measured."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"We mandate cloud workloads to use multiple Availability Zones.",
+                     "helpfulResource":{
+                        "displayText":"Designing for failure ensures that your workloads are resilient."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"We mandate cloud workloads to use multiple Regions.",
+                     "helpfulResource":{
+                        "displayText":"It is common to require backups/DR/BCP to leverage multiple regions."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"(choice4 && choice3 && choice2) && !choice1 ",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice4 || choice3 || choice2) && !choice1",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },
+            {
+               "id":"bc03",
+               "title":"How will you design for recoverability in the cloud?",
+               "description":"i.e. recovery of the workload from a source sufficiently isolated from production?",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Not sure / to be defined.",
+                     "helpfulResource":{
+                        "displayText":"Business continuity."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"We plan to recover from/to another region/geography of the cloud platform.",
+                     "helpfulResource":{
+                        "displayText":"Business continuity."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"We plan to recover from/to another cloud provider.",
+                     "helpfulResource":{
+                        "displayText":"Business continuity."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"We plan to recover from/to a traditional data centre or on-premises environment.",
+                     "helpfulResource":{
+                        "displayText":"Business continuity."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"We have agreed with the business that they will operate alternate processes.",
+                     "helpfulResource":{
+                        "displayText":"Whilst we wait for our production environment to come back online / recover to alternate environment."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice6",
+                     "title":"We have a plan and regularly validate our planned recovery approach.",
+                     "helpfulResource":{
+                        "displayText":"Business continuity"
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice6 && !choice5 && !choice4 && !choice3 && !choice2 && !choice1 ",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice5 || choice4 || choice3 || choice2) && !choice1 && !choice6",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            },            
+            {
+               "id":"bc04",
+               "title":"How will you address any contingency concerns of your regulator(s) for this workload?",
+               "description":"Business continuity",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Not sure.",
+                     "helpfulResource":{
+                        "displayText":"Business continuity."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"We have a well defined contingency plan.",
+                     "helpfulResource":{
+                        "displayText":"At a minimum, you need to define and track a vendor contingency risk, and provide at least high-level thoughts on how you might go about an exit. The plan does not have to be tested."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"We have a well defined contingency plan and it is regularly validated.",
+                     "helpfulResource":{
+                        "displayText":"Business continuity."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"As above, and there are exit clauses in our contractual arrangements.",
+                     "helpfulResource":{
+                        "displayText":"Exit clauses allow for notification periods that give you time to plan an orderly service provider exit."
+                     },
+                     "improvementPlan":{
+                        "displayText":"TBA."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice4 && !choice3 && !choice2 && !choice1",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice3 || choice2) && !choice4 && !choice1",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            }
+         ]
+      },      {
+         "id":"communication",
+         "name":"Communication",
+         "questions":[
+            {
+               "id":"com01",
+               "title":"How does information about the workload get communicated?",
+               "description":"be that performance, status, security, operational events and so forth.",
+               "choices":[
+                  {
+                     "id":"choice1",
+                     "title":"Not sure.",
+                     "helpfulResource":{
+                        "displayText":"Communicating the status of a workload is fundamental to tracking and remediating SLAs."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Ensure that dashboards or status emails/slack messages are available to provide visibility into uptime."
+                     }
+                  },
+                  {
+                     "id":"choice2",
+                     "title":"We are able to provide information on a adhoc basis when requested for it.",
+                     "helpfulResource":{
+                        "displayText":"Communication."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Consumers of a service shoud not have to request status information manually."
+                     }
+                  },
+                  {
+                     "id":"choice3",
+                     "title":"We have clear understanding and process of when to provide data, it does take time to obtain this data.",
+                     "helpfulResource":{
+                        "displayText":"Communication."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Status information should be timely, automated and accurate."
+                     }
+                  },
+                  {
+                     "id":"choice4",
+                     "title":"We have a clear understanding of data requested and have automated dashboards that are self service or automatically sent.",
+                     "helpfulResource":{
+                        "displayText":"The audience does not need to ask us for the data of how a service is performing, they can obtain it on demand or via a regular schedule without having to request it."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Automated status reporting, alerting and response are minimal requirements for resilient workloads."
+                     }
+                  },
+                  {
+                     "id":"choice5",
+                     "title":"Need to summarise this option further, the text is below for this option 1.",
+                     "helpfulResource":{
+                        "displayText":"We actively engage with our stakeholder to ensure our data sharing process remains relevant both in what needs to be shared and to who requires it, we automate this process as far as possible."
+                     },
+                     "improvementPlan":{
+                        "displayText":"Automated status reporting, alerting and response, to both humans and systems, and automated SLA reporting to targets are features of meture systems ."
+                     }
+                  }
+               ],
+               "riskRules":[
+                  {
+                     "condition":"choice5 && !choice4 && !choice3 && !choice2 && !choice1",
+                     "risk":"NO_RISK"
+                  },
+                  {
+                     "condition":"(choice4 || choice3) && !choice5 && choice2 && choice1",
+                     "risk":"MEDIUM_RISK"
+                  },
+                  {
+                     "condition":"default",
+                     "risk":"HIGH_RISK"
+                  }
+               ]
+            }
+         ]
+      }
+    ]
+ }
